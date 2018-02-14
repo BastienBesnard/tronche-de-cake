@@ -1,0 +1,17 @@
+div(class='mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-desktop-drawer-button')
+	header(class='mdl-layout__header mdl-layout__header--scroll')
+		div(class='mdl-layout__header-row')
+			span(class='mdl-layout-title')
+				img(class='logo' src='/images/logo_tronche_de_cake.jpg' alt='logo')
+			div(class='mdl-layout-spacer')
+			nav(class='mdl-navigation mdl-layout--large-screen-only')
+				each item in ongletList
+					a(class='mdl-navigation__link'+(item.name == group ? ' active-header' : '') href=item.href)= item.name
+	div(class='mdl-layout__drawer')
+		span(class='mdl-layout-title')= title
+		nav(class='mdl-navigation')
+			each item in ongletList
+				a(class='mdl-navigation__link' href=item.href)= item.name
+	main(class='mdl-layout__content')
+		div(class='page-content')
+			block page-content

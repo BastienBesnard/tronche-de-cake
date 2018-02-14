@@ -1,0 +1,29 @@
+extends header.pug
+
+block page-content
+	div(class='mdl-grid mdl-grid--no-spacing')
+		div(id='left-bar' class='mdl-cell mdl-cell--2-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone mdl-shadow--4dp')
+			div(class='close-left-bar')
+				button(type='button' class='mdl-button mdl-js-button mdl-button--icon mdl-button--colored' onclick='handleLeftBar();')
+					i(class='material-icons') close
+			h5= leftBar.title
+			case leftBar.type
+				when 'LINK'
+					ul(class='mdl-list elements-left-bar')
+						each item in leftBar.list
+							li(class='mdl-list__item')
+								span(class='mdl-list__item-primary-content')
+									a(class='mdl-list__item-primary-content' href=item.href)= item.name
+					- break
+				when 'LIST'
+					| TODO
+					- break
+				default
+					-break
+		div(id='content' class='mdl-cell mdl-cell--10-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone ')
+			button(id='open-left-bar' type='button' class='mdl-button mdl-js-button mdl-button--icon mdl-button--colored' onclick='handleLeftBar();')
+				i(class='material-icons') search
+			block content
+
+	script
+		include ../scripts/header-and-bar.js

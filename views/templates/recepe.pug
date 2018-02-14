@@ -1,0 +1,75 @@
+div(class='mdl-grid recepe')
+	div(class='mdl-cell mdl-cell--7-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone')
+		h4(class='recepe-name')= recepe.name
+		div
+			if recepe.nbPerson
+				- for (var i = 0; i < recepe.nbPerson; i++)
+					i(class='material-icons summary-icon') accessibility
+			if recepe.nbCake
+				div(id='tt1' class='material-icons mdl-badge mdl-badge--overlap summary-icon recepe-badge' data-badge=recepe.nbCake.value) cake
+				div(class='mdl-tooltip' data-mdl-for='tt1')= recepe.nbCake.tooltip
+			div(id='tt2' class='material-icons mdl-badge mdl-badge--overlap summary-icon recepe-badge' data-badge=recepe.duration.value) alarm
+			div(class='mdl-tooltip' data-mdl-for='tt2')
+				= recepe.duration.tooltipOne
+				br
+				= recepe.duration.tooltipTwo
+		if recepe.garnishList
+			div(class='mdl-tabs mdl-js-tabs mdl-js-ripple-effect')
+				div(class='mdl-tabs__tab-bar')
+					each item, index in recepe.garnishList
+						a(href='#'+item.name class='mdl-tabs__tab'+(index==0? ' is-active': ''))= item.name
+				each item, index in recepe.garnishList
+					div(class='mdl-tabs__panel'+(index==0? ' is-active': '') id=item.name)
+						br
+						div(class='ingredients')
+							each item in recepe.ingredientList
+								div
+									img(src=item.src alt=item.alt)
+									div
+										b= item.name
+									div= item.quantity
+							each subItem in item.ingredientList
+								div
+									img(src=subItem.src alt=subItem.alt)
+									div
+										b= subItem.name
+									div= subItem.quantity
+		else
+			br
+			div(class='ingredients')
+				each item in recepe.ingredientList
+					div
+						img(src=item.src alt=item.alt)
+						div
+							b= item.name
+						div= item.quantity
+						
+	div(class='mdl-cell mdl-cell--5-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone result')
+		img(src=recepe.image.src alt=recepe.image.alt)
+div(class='mdl-grid')
+	div(class='mdl-cell mdl-cell--7-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone')
+		each item, index in recepe.stepList
+			li(class='mdl-list__item')
+				span(class='mdl-list__item-primary-content')
+					case index
+						when 0
+							i(class='material-icons mdl-list__item-icon') looks_one
+							- break
+						when 1
+							i(class='material-icons mdl-list__item-icon') looks_two
+							- break
+						when 2
+							i(class='material-icons mdl-list__item-icon') looks_3
+							- break
+						when 3
+							i(class='material-icons mdl-list__item-icon') looks_4
+							- break
+						when 4
+							i(class='material-icons mdl-list__item-icon') looks_5
+							- break
+						when 5
+							i(class='material-icons mdl-list__item-icon') looks_6
+							- break
+						default
+							- break
+					= item

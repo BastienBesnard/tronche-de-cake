@@ -1,0 +1,136 @@
+/*@font-face {
+    font-family: logoFont;
+    src: url('fonts/Fyodor-Bold.woff');
+}*/
+
+body {
+	background-color: #FAFAFA;
+}
+
+@media screen and (max-width: 379px) {
+	.logo {
+		height: 25px;
+	}
+}
+
+@media screen and (min-width: 380px) {
+	.logo {
+		height: 30px;
+	}
+}
+
+.active-header {
+	box-sizing: border-box;
+	border-bottom: 3px solid #FAFAFA;
+}
+@media screen and (max-width: 1024px) {
+	.active-header {
+		height: 56px;
+	}
+}
+
+@media screen and (min-width: 1025px) {
+	.active-header {
+		height: 64px;
+	}
+}
+
+/*.title-header {
+	text-decoration: none;
+	color: inherit;
+	font-weight: inherit;
+	font-family: logoFont;
+	font-size: 40px;
+}*/
+
+.text-grey-600 {
+	color: #757575 !important;
+}
+
+.recepe .recepe-name {
+	text-transform: uppercase;
+}
+
+.recepe .summary-icon {
+	font-size: 30px;
+}
+
+.recepe .ingredients {
+	display: -webkit-flex; /* Safari */
+    -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+    display: flex;   
+    flex-wrap: wrap;
+}
+
+.recepe .ingredients > div {
+	/*display: inline-block;*/
+	width: 25%;
+	min-width: 100px;
+	box-sizing: border-box;
+	padding: 0 10px 0 10px;
+	text-align: center;
+}
+
+.recepe .ingredients > div > img {
+	height: auto;
+	width: 100%;
+}
+
+.recepe .result img {
+	width: 100%;
+}
+
+.recepe .recepe-badge:after {
+	width: 25px;
+	height: 25px;
+	top: -10px;
+	right: -13px;
+}
+
+#open-left-bar {
+	display: none;
+	top: 5px;
+	position: absolute;
+	left: 10px;
+	background-color: rgb(33, 150, 243);
+    color: white;
+	box-shadow: 0 1px 1.5px 0 rgba(0,0,0,.12), 0 1px 1px 0 rgba(0,0,0,.24);
+}
+
+#left-bar .close-left-bar button {
+	float: right;
+	margin: 10px 10px 0 0;
+}
+
+#left-bar .elements-left-bar {
+	/*margin-top: 35px;*/
+}
+
+#left-bar .elements-left-bar > li {
+	padding: 0;
+}
+
+#left-bar .elements-left-bar > li > span {
+	width: 100%;
+}
+
+#left-bar .elements-left-bar > li > span > a {
+	width: 100%;
+	text-overflow: ellipsis;
+    overflow: hidden;
+	padding: 16px;
+}
+
+#left-bar .elements-left-bar > li > span > a:hover {
+	background-color: rgba(158,158,158,.2);
+}
+
+#left-bar .elements-left-bar a {
+	color: #000000;
+	font-weight: normal;
+	text-decoration: none;'
+}
+
+#left-bar h5 {
+	margin: 16px 16px 0 16px;
+}
